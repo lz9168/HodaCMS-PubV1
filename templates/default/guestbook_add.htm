@@ -1,0 +1,33 @@
+{include header}
+
+
+<!-- MainBody -->
+<div id="MainBody">
+
+	<div class="fd_new">
+
+		<form action='index.php' id='guestbookform' method='post' target='_self' onsubmit='return chk_guestbook()'>
+		<input type='hidden' name='mod' value='guestbook' />
+		<input type='hidden' name='aid' value='4' />
+
+		<div><input type='text' name='gbname' placeholder="姓名/称呼(必须)" required maxlength='20' /></div>
+
+		<div><input type='text' name='gbtel' placeholder="电话" maxlength='15' /></div>
+
+		<div><input type='text' name='gbemail' placeholder="Email(必须)" required maxlength='50' /></div>
+
+		<div><textarea name='gbcontent' placeholder="留言内容(必须)" required rows='9' cols='61'></textarea></div>
+
+		<div><input type='submit' name='save' value='提交'/></div>
+		</form>
+
+		<div class="clear"></div>
+	</div>
+	<!-- end new feedback -->
+
+	<div class="clear"></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}

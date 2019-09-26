@@ -1,0 +1,55 @@
+{include header}
+
+<!-- MainBody -->
+<div id="MainBody">
+
+	<!-- article list -->
+	<div class="bigbox bigwidth">
+		<div class="header">
+			<div class='title'><h3>{$PAGE_TITLE}</h3></div>
+		</div>
+{if $finded}
+
+		<div class="list">
+			<ul>
+	{if $ERRMSG}
+			<li style='padding-left:20px;'>{$ERRMSG}</li>
+	{/if}
+	{eval $itn=1}
+	{list $ARTLIST $pos $r}
+				<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+				<div class='title2'>{$r['title']}</div>
+				<div class='othinfo'>
+					<div class='time2'>{$r['time']}</div>
+					<div class='fenlei'>[ ·ÖÀà: {$CATEGORY[$r['categoryid']]} ]</div>
+				</div>
+				</a>
+			</li>
+	{/list}
+			</ul>
+			<div class='clear'></div>
+		</div>
+	{if !empty($navigation)}
+		<div id='pagenav'>
+		{$navigation}
+		</div>
+	{/if}
+
+{else}
+	<div class='search search2' id='searchform2'>
+	<script>document.write($('searchform').innerHTML);$('searchform').innerHTML='';</script>
+	</div>
+{/if}
+
+		<div class="clear"></div>
+	</div>
+	<!-- end article list -->
+
+	<div class="clear"></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}

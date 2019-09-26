@@ -1,0 +1,24 @@
+/******************************************************************************/
+/* color 293462 */
+a:hover{color:#293462;}
+.tnav{border-top:5px solid #293462;background-color:#293462;}
+.tnav li a{border:1px solid #293462;}
+.tnav li a:hover{color:#293462;background-color:#89a4ff;}
+
+.subbannar{background:url('./img/subbannar.jpg') no-repeat;
+	background-size:100% 180px; -moz-background-size:100% 180px;}
+
+.bigbox .header .title,.bigbox .header .more a{color:#eee;}
+.content .file dd:before{color:#999;}
+.footer dd:before{color:#a64942;}
+.footer dt{color:#222;}
+.footer a, .copyright a{color:#333;}
+.footer a:hover, .copyright a:hover{color:#eee;}
+@media screen and (max-width:767px) {
+	.tnav li a:hover{color:#293462;}
+}
+
+.bigbox .header{background-color:#a64942;color:#eee;}
+.fd_new input[type="submit"]{background-color:#a64942;color:#eee;}
+.footer{background-color:#fe5f55;}
+.copyright{background-color:#a64942;}

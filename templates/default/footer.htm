@@ -1,0 +1,63 @@
+
+<!-- Footer -->
+<div class="clear"></div>
+<div class="footer">
+	<div class="page_center">
+
+<dl class="maps">
+	<dt>网站导航</dt>
+	<dd><a href="./" target='_blank'>首页</a></dd>
+{list $MAIN_MENU $key $val}
+	<dd><a href="{$val}" target='_blank'>{$key}</a></dd>
+{/list}
+	<dd><a href="index.php?mod=search&aid=20" target="_blank">搜索</a>
+</dl>
+
+<dl class='contact'>
+	<dt>联系我们</dt>
+	<dd><a href="index.php?mod=guestbook&aid=2" target="_blank">网上留言</a>
+	<dd><a href="" target="_blank">电话: 12345678</a></dd>
+	<dd><a href="" target="_blank">手机: 12345678</a></dd>
+	<dd><a href="" target="_blank">QQ: 12345678</a></dd>
+	<dd><a href="" target="_blank">微信: abc</a></dd>
+	<dd><a href="" target="_blank">微博: abc</a></dd>
+	<dd><a href="" target="_blank">抖音: abc</a></dd>
+	<dd><a href="" target="_blank"><i>abc@abc.com</i></a></dd>
+</dl>
+
+<dl class="like">
+	<dt>友情链接</dt>
+{list $LINK_LIST $r}
+	<dd><a target='_blank' href='{$r['url']}'>{$r['name']}</a></dd>
+{/list}
+</dl>
+
+<dl class="qr_image">
+	<dt>付费服务</dt>
+	<img src='res/img/weixin-mini.jpg' />
+</dl>
+
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="clear"></div>
+<!-- end Footer -->
+
+<div class="copyright">
+	<div class="page_center">
+{$COPYRIGHT}
+	</div>
+</div>
+
+
+<script type="text/javascript">
+initNav();
+window.onload=function(){
+	var ft = window.innerHeight - document.body.clientHeight;
+	var mbheight = $('MainBody').style.height;
+	if (ft>0)
+		$('MainBody').style.height=ft+420 + 'px';
+}
+</script>
+</body>
+</html>

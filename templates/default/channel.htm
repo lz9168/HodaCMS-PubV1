@@ -1,0 +1,42 @@
+{include header}
+
+
+<!-- MainBody -->
+<div id="MainBody">
+
+	<!-- all category list -->
+{eval $ctn=1}
+{list $CATE_MENU $key $val}
+	<div class="bigbox midwidth">
+		<div class="header">
+			<div class='title'><h3>{$val['name']}</h3></div>
+			<div class='more'><a href='{$val['url']}' target='_blank'>¸ü¶à&gt;&gt;</a></div>
+		</div>
+		<div class="list">
+			<ul>
+	{eval $itn=1}
+	{list $$key $r}
+			<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tsmlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+			    <div class='title2'>{$r['title']}</div>
+				<div class='othinfo'>
+					<div class='time2' data-time-md='$r['time-md']'>{$r['time']}</div>
+				</div>
+				</a>
+			</li>
+	{/list}
+			</ul>
+			<div class='clear'></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+{/list}
+	<!-- end all category list -->
+
+	<div class="clear"></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}

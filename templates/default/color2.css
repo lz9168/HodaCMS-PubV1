@@ -1,0 +1,24 @@
+/******************************************************************************/
+/* color red BB1542 */
+a:hover{color:#f60;}
+.tnav{border-top:5px solid #BB1542;background-color:#BB1542;}
+.tnav li a{border:1px solid #BB1542;}
+.tnav li a:hover{color:#BB1542;background-color:#fabc74;}
+
+.subbannar{background:url('./img/subbannar.jpg') no-repeat;
+	background-size:100% 180px; -moz-background-size:100% 180px;}
+
+.bigbox .header .title,.bigbox .header .more a{color:#fff;}
+.content .file dd:before{color:#999;}
+.footer dd:before{color:#666;}
+.footer dt{color:#222;}
+.footer a, .copyright a{color:#333;}
+.footer a:hover, .copyright a:hover{color:#BB1542;}
+@media screen and (max-width:767px) {
+	.tnav li a:hover{color:#BB1542;}
+}
+
+.bigbox .header{background-color:#eb5f5d;}
+.fd_new input[type="submit"]{background-color:#eb5f5d;color:#fff;}
+.footer{background-color:#fabc74;}
+.copyright{background-color:#6e9086;}

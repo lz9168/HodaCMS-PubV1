@@ -1,0 +1,24 @@
+/******************************************************************************/
+/* color 深蓝色 1C4987 */
+a:hover{color:#1C4987;}
+.tnav{border-top:5px solid #1C4987;background-color:#1C4987;}
+.tnav li a{border:1px solid #1C4987;}
+.tnav li a:hover{color:#1C4987;background-color:#8be;}
+
+.subbannar{background:url('./img/subbannar.jpg') no-repeat;
+	background-size:100% 180px; -moz-background-size:100% 180px;}
+
+.bigbox .header .title,.bigbox .header .more a{color:#fff;}
+.content .file dd:before{color:#999;}
+.footer dd:before{color:#666;}
+.footer dt{color:#D4D4D4;}
+.footer a, .copyright a{color:#989898;}
+.footer a:hover, .copyright a:hover{color:#3767A7;}
+@media screen and (max-width:767px) {
+	.tnav li a:hover{color:#1C4987;}
+}
+
+.bigbox .header{background-color:#3767A7;}
+.fd_new input[type="submit"]{background-color:#3767A7;color:#fff;}
+.footer{background-color:#333;}
+.copyright{background-color:#555;}

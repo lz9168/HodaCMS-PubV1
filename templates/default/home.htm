@@ -1,0 +1,74 @@
+{include header}
+
+
+<!-- image player -->
+{if $FLASHTV_ImgNUM!=0}
+<div id="ImgPlayer" class="imgplayer">
+	<div class='ipr_img'>
+{eval $i=1}
+{list $FLASHTV $r}
+		<div id="pimg_{echo $i++}" class="">
+			<a target='_blank' href="{$r['url']}">
+				<img src="{$r['urlimg']}" />
+				<p class='title'>{$r['title']}</p>
+			</a>
+		</div>
+{/list}
+	</div>
+	<div class="ipr_tab">
+		<ul>
+{eval $i=1}
+{list $FLASHTV $r}
+		<li id="ptab_{echo $i}" class="out">
+			<a target='_blank' href="{$r['url']}" onmousemove="imgplayer_select_tab('idname',{echo $i++});">
+				<img src="{$r['urlimg']}" />
+			</a>
+		</li>
+{/list}
+		</ul>
+	</div>
+</div>
+<script>imgcount={echo $FLASHTV_ImgNUM};</script>
+{/if}
+<!-- end image player -->
+
+
+<!-- MainBody -->
+<div id="MainBody">
+
+<!-- all category(show@home) -->
+{eval $ctn=0}
+{list $CATE_MENU $key $val}
+  {if $val['name']!='Í¼Æ¬ÂÖ²¥'}
+	<div class="bigbox midwidth">
+		<div class="header">
+			<div class='title'><h3>{$val['name']}</h3></div>
+			<div class='more'><a href='{$val['url']}' target='_blank'>¸ü¶à&gt;&gt;</a></div>
+		</div>
+		<div class="list">
+			<ul>
+{list $$key $r}
+			<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tsmlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+			    <div class='title2'>{$r['title']}</div>
+				<div class='othinfo'>
+					<div class='time2' data-time-md='$r['time-md']'>{$r['time']}</div>
+				</div>
+				</a>
+			</li>
+{/list}
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+  {/if}
+{/list}
+<!-- end all category(show@home) -->
+
+	<div class='clear'></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$PAGE_TITLE} - {$WINTITLE}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=3.0, user-scalable=1, shrink-to-fit=no">
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="keywords" content="{$KEYWORDS}" />
+<meta name="description" content="{$DESCRIPTION}" />
+<!-- {$BASE_HREF} -->
+<base target="_blank" href="{$BASE_HREF}" />
+<!-- 避免IE使用兼容模式 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!-- 启用360浏览器的极速模式(webkit) -->
+<meta name="renderer" content="webkit" />
+<script src="{$MAIN_JS}?v=1" type="text/JavaScript" language="JavaScript"></script>
+<link  href="{$MAIN_CSS}?v=2" type="text/css" rel="stylesheet" />
+{if !empty($COLOR_CSS)}
+<link  href="{$COLOR_CSS}?v=1" type="text/css" rel="stylesheet" />
+{/if}
+</head>
+
+<body class='colorbody' onload=''>
+
+<!-- Top -->
+<div class="topbg">
+  <div class="top">
+	<div class="logo"><a href="/"><img src="{$hlogo}" /></a></div>
+	<div class='topcp'>
+		<div class='search' id='searchform'>
+<form action='./index.php' method='post' onsubmit='return chk_search(this);'>
+<input type="hidden" name="hash" value="<?=$HASH?>">
+<input type='hidden' name='mod' value='search' />
+<input type='hidden' name='aid' value='20' />
+<input type='text' name='txt' value='' placeholder="请输入关键词" maxlength='20' />
+<input type='submit' name='submit' value='查找' />
+</form>
+		</div>
+		<div class="txtbannar" style='display:none'>集团建站——集团网站群10秒钟搞定！</div>
+	</div>
+  </div>
+</div>
+<!-- end Top -->
+
+<!-- main menu -->
+<div class="tnav" id='TNav'>
+	<div class='tnav-top'>
+		<div class='tnav-logo'>
+			<a href="./" target='_blank'>HodaCMS首页</a>
+		</div>
+		<button class='tnav-toggle' id='tnav-toggle' type="button">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<ul class='tnavul' id='tnavul'>
+		<li><a href="./" target='_blank'>首页</a></li>
+{list $MAIN_MENU $key $val}
+		<li><a href="{$val}" target='_blank'>{$key}</a></li>
+{/list}
+	</ul>
+</div>
+<script>
+var node=document.querySelector('.tnavul');
+//node.childNodes.length=15,  node.children.length=7
+var t = node.getElementsByTagName('li');
+var navnum = t.length;
+if (navnum > 3) {
+	//alert('need hidden for phone');
+}
+</script>
+<!-- end main menu -->
+
+{if ! IS_HOME}
+<div class='subbannar'></div>
+{/if}
+
+<!-- current navigate -->
+{if !empty($CUR_POSITION)}
+<div class='subnav'>
+	<div class='dqwz'>当前位置：<a href='./'>首页</a>{$CUR_POSITION}</div>
+</div>
+{/if}
+<!-- end current navigate -->

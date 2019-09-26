@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+# RewriteEngine On
+# RewriteCond    %{REQUEST_URI}    \.db$    [NC]
+# RewriteRule    \.db$    /404.html    [NC,L]
+</IfModule>
+
+<FilesMatch "\.db$">
+Deny from all
+</FilesMatch>

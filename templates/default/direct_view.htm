@@ -1,0 +1,101 @@
+{include header}
+<!--使用静态url时,命名为'channelview'并简写为：'chnview',用法见rewrite.-->
+
+
+<!-- MainBody -->
+<div id="MainBody">
+
+	<!-- 资料 -->
+	<div class="view"> 
+		<div class='title'>
+			<h1>{$ARTINFO['title']}</h1>
+			<div class='prop'>
+				<span class='time'>{$ARTINFO['lasttime']}</span>
+			</div>
+		</div>
+		
+		<div class='content'>
+
+{if !empty($ARTINFO['subtitle'])}
+			<div class='digest'>{$ARTINFO['subtitle']}</div>
+{/if}
+
+{if !empty($ARTINFO['content'])}
+			<div class='detail'>{$ARTINFO['content']}</div>
+{/if}
+
+<!-- video player -->
+{if $ARTINFO['type']==3 && !empty($ARTFILE)}
+	{list $ARTFILE $r}
+		{if $r['mime']=='application/octet-stream'}
+			<div class='video'>
+<embed controls="smallcontrol" src="res/swf/vcastr3.swf" 
+	type="application/x-shockwave-flash" title="{$r['name']}" 
+	autostart="{echo ($CFG_Art_AUTO_PLAY ? 'true':'false')}" 
+	FlashVars="xml=<vcastr>
+	<channel><item><source>../../{$r['path']}</source></item></channel>
+	<config><controlPanelMode>float</controlPanelMode>
+	<isAutoPlay>{echo ($CFG_Art_AUTO_PLAY ? 'true':'false')}</isAutoPlay></config>
+	</vcastr>" />
+<div>{$r['name']}</div>
+			</div>
+		{elseif $r['mime']=='video/x-ms-wmv'}
+			<div class='video'>
+<embed controls="smallcontrol" src="{$r['path']}" type="video/x-ms-wmv" 
+	autostart="{echo ($CFG_Art_AUTO_PLAY ? 'true':'false')}" />
+<div>{$r['name']}</div>
+			</div>
+		{elseif $r['mime']=='video/mp4'}
+			<div class='video'>
+<video controls autoplay>
+<source src="{$r['path']}" type="video/mp4">
+</video>
+<div>{$r['name']}</div>
+			</div>
+		{elseif $r['mime']=='audio/mpeg' || $r['mime']=='audio/mp3'}
+			<div class='video'>
+<audio controls autoplay>
+<source src="{$r['path']}" type="{$r['mime']}">
+</audio>
+<div>{$r['name']}</div>
+			</div>
+		{/if}
+	{/list}
+{/if}
+<!-- end video player -->
+
+<!-- gallery -->
+{if $ARTINFO['type']==2 && !empty($ARTFILE)}
+			<div class='gallery'>
+	{list $ARTFILE $r}
+<div>
+	<a href='{$ARTINFO['url']}' title='{$ARTINFO['url']}' target='_blank'>
+	<img src='{$r['path']}' alt='{$ARTINFO['url']}' border='0' />
+	</a>
+</div>
+	{/list}
+			</div>
+{/if}
+<!-- end gallery -->
+
+{if !empty($ARTFILE)}
+			<div class='file'>
+				<dl><dt>附件：</dt>
+{list $ARTFILE $r}
+				<dd><a href='{$r['path']}' target='_blank'>{$r['name']}</a></dd>
+{/list}
+				</dl>
+			</div>
+{/if}
+		</div>
+		<!-- end content -->
+		
+	</div>
+	<!-- end view -->
+	
+	<div class="clear"></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}

@@ -1,0 +1,47 @@
+<style>
+ul{line-height:30px;list-style:none;}
+li{float:left;display:inline-block;width:100%;}
+.clear{clear:both;}
+
+/* items-list-article-style1:title and time */
+.list li .title,.list li .tsmtitle{float:left;padding:0px;white-space:normal;
+	line-height:1.5em;height:3.1em;overflow:hidden;position:relative;top:0px;}
+.list li .time{position:relative;top:0px;font-size:14px;color:#888;margin-right:0px;}
+
+/* items-list-article-style2:title and time */
+.list li .title2{margin-right:15px;overflow:hidden;white-space:nowrap;}
+.list li .othinfo{font-size:12px;color:#999;}
+.list li .time2{float:left;}
+.list li .fenlei{padding-left:220px;}
+</style>
+
+<ul>
+
+style 1:
+<div class='list'>
+			<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+			    <div class='title'>title</div>
+			    <div class='time'>2019-06-06 06:06</div>
+				</a>
+			</li>
+</div>
+<div class="clear"></div>
+
+style 2:
+<div class='list'>
+			<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+				<div class='title2'>title</div>
+				<div class='othinfo'>
+					<div class='time2'>2019-06-06 06:06:06</div>
+					<div class='fenlei'>[ 分类: 新闻 ]</div>
+				</div>
+				</a>
+			</li>
+</div>
+<div class="clear"></div>
+
+</ul>

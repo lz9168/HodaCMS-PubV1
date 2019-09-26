@@ -1,0 +1,24 @@
+Options All -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+#
+# 本地PC apache-v1.3 开发环境专用
+#
+# 必须在index.php前面加上'/cmsall/',
+# 否则,会被改写成z:\www\cmsall\z:\www\cmsall\index.php
+# RewriteRule ^(.*)$ /cmsall/$1 [L,QSA]
+
+RewriteCond    z:/www/cmsall/%{REQUEST_FILENAME} !-f  [NC]
+
+#RewriteRule    ^(.*)/html/home-([0-9]+)/index-([0-9]+)\.html$    /cmsall/index.php  [NC,L]
+
+RewriteRule    ^(.*)/html/channel-([0-9]+)/index-([0-9]+)\.html$    /cmsall/index.php?mod=channel&s=$2  [NC,L]
+RewriteRule    ^(.*)/html/channel-([0-9]+)/c-([0-9]+)/index-([0-9]+)\.html$    /cmsall/index.php?mod=category&s=$2&c=$3  [NC,L]
+RewriteRule    ^(.*)/html/channel-([0-9]+)/c-([0-9]+)/a-([0-9]+)-([0-9]+)\.html$    /cmsall/index.php?mod=view&s=$2&c=$3&id=$4  [NC,L]
+
+RewriteRule    ^(.*)/html/chnview-([0-9]+)/index-([0-9]+)\.html$    /cmsall/index.php?mod=direct_view&s=$2  [NC,L]
+
+</IfModule>
+

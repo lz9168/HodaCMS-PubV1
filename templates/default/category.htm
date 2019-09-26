@@ -1,0 +1,49 @@
+{include header}
+
+{list $SUB_MENU $key $val}
+<!--a href='{$val}' target='_self'>{$key}</a-->
+{/list}
+
+
+<!-- MainBody -->
+<div id="MainBody">
+
+	<!-- article list -->
+	<div class="bigbox bigwidth">
+		<div class="header">
+			<div class='title'><h3>{$CATEGORY[$CATEGORY_ID]}</h3></div>
+		</div>
+		<div class="list">
+			<ul>
+{eval $itn=1}
+{list $ARTLIST $pos $r}
+			<li>
+				<a href='{$r['url']}' target='_blank'>
+				<div class='tlogo' id='tlogo' data-img="{$r['urlimg']}"></div>
+				<div class='title2'>{$r['title']}</div>
+				<div class='othinfo'>
+					<div class='time2' data-time-md='$r['time-md']'>{$r['time']}</div>
+				</div>
+				</a>
+			</li>
+{/list}
+			</ul>
+			<div class='clear'></div>
+		</div>
+
+{if !empty($navigation)}
+		<div id='pagenav'>
+		{$navigation}
+		</div>
+{/if}
+
+		<div class="clear"></div>
+	</div>
+	<!-- end article list -->
+
+	<div class="clear"></div>
+</div>
+<!-- end MainBody -->
+
+
+{include footer}
